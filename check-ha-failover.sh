@@ -3,12 +3,11 @@ source ./variable/setting.sh
 
 
 echo $SERVICE
+status=$(systemctl is-active haproxy | awk '{print $1}')
 
 
-
-# if systemctl is-active $SERVICE; then
-#     echo "$SERVICE is running."
-# else
-#     echo "Stop keepalived"
-#     service keepalived stop
-# fi
+if [$status == 'active'] ; then
+    echo "Service đang hoạt động"
+else
+    echo "Service đang không hoạt động"
+fi
