@@ -8,8 +8,7 @@ status=$(systemctl is-active $SERVICE | awk '{print $1}')
 echo $status
 
 if [ "$status" != "active" ]; then
-    echo "Service đang không hoạt động" > inactive.text
-    service keepalived stop
+    service keepalived stop && echo "Service đang không hoạt động" > inactive.text
 
 
 else
