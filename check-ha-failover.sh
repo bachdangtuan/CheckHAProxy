@@ -9,6 +9,9 @@ echo $status
 
 if [ "$status" != "active" ]; then
     echo "Service đang không hoạt động"
+    service keepalived stop
+
+
 else
     echo "Service đang hoạt động"
 fi
